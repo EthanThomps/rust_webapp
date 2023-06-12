@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.bluepf {
+    @apply bg-blue-400 p-5
+}
