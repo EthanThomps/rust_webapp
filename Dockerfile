@@ -15,6 +15,10 @@ RUN cargo add dioxus-ssr
 RUN cargo add tokio --features full
 RUN cargo add axum
 RUN cargo add dioxus-free-icons
-RUN npx tailwindcss -i ./input.css -o ./public/tailwind.css --watch
 
+# Development
+RUN npx tailwindcss -i ./input.css -o ./public/tailwind.css --watch
+RUN dioxus serve --hot-reload
+
+# Production
 CMD ["dioxus", "serve"]
