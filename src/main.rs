@@ -4,39 +4,33 @@ use dioxus::prelude::*;
 
 fn main() {
     // launch the web app
-    // dioxus_web::launch(App);
+    dioxus_web::launch(App);
+}
 
-    // We can render VirtualDoms
-    let mut vdom = VirtualDom::new(App);
-    let _ = vdom.rebuild();
-    println!("{}", dioxus_ssr::render(&vdom));
+fn ToggleLight(cx: Scope) -> Element {
+    let mut toggle = true;
 
-    // Or we can render rsx! calls themselves
-    println!(
-        "{}",
-        dioxus_ssr::render_lazy(rsx! {
-            div {
-                h1 { "Hello, world!" }
-            }
-        })
-    );
+    cx.render(rsx! {
+        button {
+            onclick: move |e| !toggle, 
+            "Toggle Variablee"
+        }
 
-    // We can configure the SSR rendering to add ids for rehydration
-    println!("{}", dioxus_ssr::pre_render(&vdom));
+        if toggle {
+            rsx!(div { "True"})
+            toggle = false
+        } else {
+            rsx!(div { "False"})
+            toggle = true
+        }
 
-    // We can render to a buf directly too
-    let mut file = String::new();
-    let mut renderer = dioxus_ssr::Renderer::default();
-    renderer.render_to(&mut file, &vdom).unwrap();
-    println!("{file}");
+    })
 }
 
 // create a component that renders a div with the text "Hello, world!"
 fn App(cx: Scope) -> Element {
     cx.render(rsx! {
-        div {
-            class:"bluepf",
-            "Dockerized!"
-        }
-    })
+        ToggleLight {},
+        ToggleLight {}
+    }) 
 }

@@ -17,4 +17,4 @@ RUN cargo add axum
 RUN cargo add dioxus-free-icons
 RUN npx tailwindcss -i ./input.css -o ./public/tailwind.css --watch
 
-CMD ["dioxus", "serve",]
+CMD ["dioxus", "serve"]
