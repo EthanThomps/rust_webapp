@@ -9,6 +9,10 @@ fn main() {
 
 fn App(cx: Scope) -> Element {
     cx.render(rsx! {
-       div {"dockerized"}
+       div {
+        class: "bluepf",    
+        "dockerized"  
+    }
     }) 
 }
+
