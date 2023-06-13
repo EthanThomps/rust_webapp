@@ -73,3 +73,5 @@ fn App(cx: Scope) -> Element {
         TodoPage {}
     })
 }
+
+// https://github.com/DioxusLabs/dioxus/blob/master/examples/router.rs
