@@ -1,11 +1,9 @@
 version="0.3.2"
 
 [scripts]
-
-# Database
-db="docker run --rm --pull always -p 8000:8000 surrealdb/surrealdb:latest %%"
-
-# Development
+# shortcuts to run app
 get-rust="curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 css="npx tailwindcss -i ./input.css -o ./public/tailwind.css --watch"
 serve="dioxus serve --hot-reload"
+
+# docker compose

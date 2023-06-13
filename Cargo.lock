@@ -1120,7 +1120,6 @@ dependencies = [
  "dioxus-router",
  "dioxus-ssr",
  "dioxus-web",
- "tokio",
 ]
 
 [[package]]
@@ -1425,17 +1424,6 @@ name = "to_method"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c7c4ceeeca15c8384bbc3e011dbd8fccb7f068a440b752b7d9b32ceb0ca0e2e8"
-
-[[package]]
-name = "tokio"
-version = "1.28.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "94d7b1cfd2aa4011f2de74c2c4c63665e27a71006b0a192dcd2710272e73dfa2"
-dependencies = [
- "autocfg",
- "pin-project-lite",
- "windows-sys 0.48.0",
-]
 
 [[package]]
 name = "typenum"
