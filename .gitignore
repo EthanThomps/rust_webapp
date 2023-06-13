@@ -1,1 +1,4 @@
-/target
+# todo: fix not ignoring version
+.env
+/.vscode
+/.github
