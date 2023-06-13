@@ -1,7 +1,18 @@
 use axum::{routing::get, Router};
+use serde::Deserialize;
+
+#[derive(Deserialize)]
+struct Todos {
+    title: &'static str,
+    task: &'static str,
+    createdAt: u8,
+}
 
 #[tokio::main]
 async fn main() {
+    // ssr solution?
+    // https://rust-on-nails.com/docs/full-stack-web/server-side-components/
+    
     // build routes
     let app = Router::new()
         .route("/", get(|| async { "index Page" }))

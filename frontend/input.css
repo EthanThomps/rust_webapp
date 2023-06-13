@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
-.bluepf {
-    @apply bg-blue-400 p-5
+.inputBox {
+    @apply bg-slate-300 p-5 text-2xl hover:bg-slate-400
+}
+
+.card {
+    @apply justify-center p-5 
 }

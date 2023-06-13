@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use dioxus_router::{Link, Redirect, Route, Router};
+use dioxus_router::{Link, Router, Route};
 
 fn main() {
     dioxus_web::launch(App);
@@ -9,16 +9,53 @@ fn main() {
 
 fn App(cx: Scope) -> Element {
     cx.render(rsx! {
+        Header {}
+    })
+}
+
+fn Header(cx: Scope) -> Element {
+    cx.render(rsx! {
         Router {
-            Route {to: "/", h1 {"Index"}},
-            Route {to: "/create-todos", h1 {"Create Todos"}},
-            Route {to: "/delete-todos", h1 {"Delete Todos"}},
-            Route {to: "/view-todos", h1 {"View Todos"}},
-            Redirect{from: "", to:"/" }
+            Route {to: "/create-todos",   TodoCard {}}
         },
-        Link { to:"/", "Index"},
-        Link { to:"/create-todos", "Create Todos"},
-        Link { to:"/delete-todos", "Delete Todos"},
-        Link { to:"/view-todos", "View Todos"}
+        div {
+            class: "bg-slate-950 p-2 flex",
+            div {
+                class: "p-5 justify-start text-base",
+                "Welcome to app"
+            },
+            ul {
+                class: "justify-center",
+                Link {to: "/create-todos", "Create Todos"}
+            }
+        }
+    })
+}
+
+fn InputBox(cx:Scope) -> Element {
+    let item = use_state(&cx, || "".to_string());
+    cx.render(rsx! {
+        input {
+            class: "inputBox my-4 justify-center",
+            value: "{item}",
+            oninput: move |evt| item.set(evt.value.clone())
+        }
+    })
+}
+
+fn TodoCard(cx: Scope) -> Element {
+    cx.render(rsx! {
+        div {
+            class: "card",
+            div {
+                class: "card bg-slate-300",
+                h1 {
+                    class: "p-5 text-2xl justify-center",
+                    "Create Todos"
+                },
+                InputBox {},
+                InputBox {}
+            }
+        }
     })
 }
